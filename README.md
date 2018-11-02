@@ -6,7 +6,7 @@ In the mockup linked below, you'll find a simple, static chat log. We'd like you
 
 
 ## Provided Assets
-- Design file - [Download .PSD](https://github.com/RedVentures22/chatly-ifer/raw/master/chatly-ifier_project.psd)
+- Design file - [Download .PSD](https://github.com/RedVentures22/chatly-ifier/raw/master/chatly-ifier_project.psd)
 - API endpoint for the data set - https://api.myjson.com/bins/14hgea
 
 
