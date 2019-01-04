@@ -6,8 +6,8 @@ In the mockup linked below, you'll find a simple, static chat log. We'd like you
 
 
 ## Provided Assets
-- Design file - [Download .PSD](https://github.com/RedVentures22/chatly-ifier/raw/master/chatly-ifier_project.psd)
-- API endpoint for the data set - https://api.myjson.com/bins/14hgea
+- Design file - See `chatly-ifier_project.psd` included in repo 
+- API endpoint for the data set - https://api.myjson.com/bins/1geede
 
 
 ## Guidelines
@@ -23,7 +23,7 @@ Your project should function in the latest versions of Chrome, Safari and Firefo
 - A clean, semantic HTML structure
 - Clear, well-organized CSS that matches the design. Use of CSS preproccessor/transpiler is allowed, but not required!
 - Fast, light-weight JS. We would prefer to see ES6+ syntax, but write whatever you're most comfortable with.
-- An asynchronous network request (in method of your choosing, but without using a library/framework/npm package) to retreive the data from the API endpoint provided
+- An asynchronous network request (in method of your choosing, but without using a library/framework/npm package) to retrieve the data from the API endpoint provided
 
 ### Bonus items: 
 - Modular, reusable code
