@@ -33,3 +33,6 @@ Your project should function in the latest versions of Chrome, Safari and Firefo
  
 ## How to Submit
 Bundle up any source code (if you have separate source files) into a browser-ready `/dist` directory. Once you've completed your project, open a pull request from your **development** branch into **master**. Feel free to make liberal use of the description field if you have comments you want to communicate to the review team. Add your recruiter to as a reviewer (to notify them you've completed this step), and expect to hear back from us soon!
+
+## Design Preview
+![Image of Yaktocat](/chatly-ifier_project.png)
