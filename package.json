@@ -4,7 +4,9 @@
   "description": "We've created this project to help us identify your strengths. This isn't about making anyone do grunt work or jump through additional hoops in our interview process. We want to turn you loose, see what you can do and quickly determine where in our organization you can be most effective. This assessment has been setup to take a minimal amount of time, while explicitly outlining what we are looking for you to demonstrate knowledge of.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run watch & live-server dist",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,18 @@
   "bugs": {
     "url": "https://github.com/RedVentures22/chatly-ifier-tdo94/issues"
   },
-  "homepage": "https://github.com/RedVentures22/chatly-ifier-tdo94#readme"
+  "homepage": "https://github.com/RedVentures22/chatly-ifier-tdo94#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "live-server": "^1.2.1",
+    "path": "^0.12.7",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
 }
