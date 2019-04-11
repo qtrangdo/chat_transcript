@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       conversationDate: '',
-      messages : [],
+      messages: [],
     }
   }
 
@@ -24,9 +24,15 @@ class App extends Component {
   }
 
   render() {
+    const { conversationDate, messages } = this.state;
     return (
       <div>
-        Hello World!
+        {messages.map(message => (
+          <div>
+            <p>{message.message}</p>
+            <p>{message.username} <span>{message.timestamp}</span> </p>
+          </div>
+        ))}
       </div>
     )
   };

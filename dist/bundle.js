@@ -24878,7 +24878,12 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hello World!");
+      var _this$state = this.state,
+          conversationDate = _this$state.conversationDate,
+          messages = _this$state.messages;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, messages.map(function (message) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.message), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, message.timestamp), " "));
+      }));
     }
   }]);
 
