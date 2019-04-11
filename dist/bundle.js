@@ -24840,12 +24840,30 @@ function (_Component) {
   _inherits(App, _Component);
 
   function App() {
+    var _this;
+
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
+    _this.state = {
+      messages: [],
+      conversationDate: ''
+    };
+    return _this;
   }
 
   _createClass(App, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      fetch('https://api.myjson.com/bins/1geede').then(function (res) {
+        return res.json();
+      }).then(function (res) {
+        return console.log(res.data);
+      })["catch"](function (err) {
+        throw Error('fail to fetch data');
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Hello World!");
