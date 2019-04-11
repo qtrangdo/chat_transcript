@@ -25821,24 +25821,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _dataHandlers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dataHandlers */ "./src/dataHandlers.js");
+/* harmony import */ var _dataHandlers__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_dataHandlers__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
 var Header = function Header(_ref) {
   var chatDate = _ref.chatDate;
-  var formatDate = getDate(chatDate);
+  var formatDate = Object(_dataHandlers__WEBPACK_IMPORTED_MODULE_2__["getDate"])(chatDate);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "CHAT TRANSCRIPT"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, formatDate), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
 };
 
-var getDate = function getDate(chatDate) {
-  var dateParts = chatDate.split('-');
-  var year = parseInt(dateParts[0], 10);
-  var monthIndex = parseInt(dateParts[1], 10) - 1; // month index starts at 0
-
-  var date = parseInt(dateParts[2], 10);
-  var dayIndex = new Date(year, monthIndex, date).getDay();
-  return "".concat(days[dayIndex], ", ").concat(months[monthIndex], " ").concat(date, ", ").concat(year);
+Header.propTypes = {
+  chatDate: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
 };
+/* harmony default export */ __webpack_exports__["default"] = (Header);
+
+/***/ }),
+
+/***/ "./src/dataHandlers.js":
+/*!*****************************!*\
+  !*** ./src/dataHandlers.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
 var months = {
   1: 'January',
@@ -25863,10 +25870,20 @@ var days = {
   5: 'Friday',
   6: 'Saturday'
 };
-Header.propTypes = {
-  chatDate: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+
+var getDate = function getDate(chatDate) {
+  var dateParts = chatDate.split('-');
+  var year = parseInt(dateParts[0], 10);
+  var monthIndex = parseInt(dateParts[1], 10) - 1; // month index starts at 0
+
+  var date = parseInt(dateParts[2], 10);
+  var dayIndex = new Date(year, monthIndex, date).getDay();
+  return "".concat(days[dayIndex], ", ").concat(months[monthIndex], " ").concat(date, ", ").concat(year);
 };
-/* harmony default export */ __webpack_exports__["default"] = (Header);
+
+module.exports = {
+  getDate: getDate
+};
 
 /***/ }),
 
