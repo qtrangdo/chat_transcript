@@ -24846,8 +24846,8 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
     _this.state = {
-      messages: [],
-      conversationDate: ''
+      conversationDate: '',
+      messages: []
     };
     return _this;
   }
@@ -24855,12 +24855,24 @@ function (_Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
+
       fetch('https://api.myjson.com/bins/1geede').then(function (res) {
         return res.json();
       }).then(function (res) {
-        return console.log(res.data);
+        return _this2.setData(res.data);
       })["catch"](function (err) {
         throw Error('fail to fetch data');
+      });
+    }
+  }, {
+    key: "setData",
+    value: function setData(data) {
+      var conversationDate = data.conversationDate,
+          messages = data.messages;
+      this.setState({
+        conversationDate: conversationDate,
+        messages: messages
       });
     }
   }, {

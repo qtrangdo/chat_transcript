@@ -4,18 +4,23 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      messages : [],
       conversationDate: '',
+      messages : [],
     }
   }
 
   componentDidMount() {
     fetch('https://api.myjson.com/bins/1geede')
       .then(res => res.json())
-      .then(res => console.log(res.data))
+      .then(res => this.setData(res.data))
       .catch(err => {
         throw Error('fail to fetch data')
       })
+  }
+
+  setData(data) {
+    const { conversationDate, messages } = data;
+    this.setState({ conversationDate, messages });
   }
 
   render() {
