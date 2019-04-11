@@ -24814,6 +24814,29 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DisplayTransript__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DisplayTransript */ "./src/components/DisplayTransript.js");
+
+
+
+var App = function App() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DisplayTransript__WEBPACK_IMPORTED_MODULE_1__["default"], null);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/components/DisplayTransript.js":
+/*!********************************************!*\
+  !*** ./src/components/DisplayTransript.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24834,17 +24857,17 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var App =
+var DisplayTranscript =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(App, _Component);
+  _inherits(DisplayTranscript, _Component);
 
-  function App() {
+  function DisplayTranscript() {
     var _this;
 
-    _classCallCheck(this, App);
+    _classCallCheck(this, DisplayTranscript);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DisplayTranscript).call(this));
     _this.state = {
       conversationDate: '',
       messages: []
@@ -24852,7 +24875,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(App, [{
+  _createClass(DisplayTranscript, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
@@ -24887,10 +24910,10 @@ function (_Component) {
     }
   }]);
 
-  return App;
+  return DisplayTranscript;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (App);
+/* harmony default export */ __webpack_exports__["default"] = (DisplayTranscript);
 
 /***/ }),
 
