@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header';
 
 class DisplayTranscript extends Component {
   constructor() {
@@ -27,8 +28,9 @@ class DisplayTranscript extends Component {
     const { conversationDate, messages } = this.state;
     return (
       <div>
-        {messages.map(message => (
-          <div>
+        {!!conversationDate && <Header chatDate={conversationDate} />}
+        {messages.map((message, i) => (
+          <div key={i}>
             <p>{message.message}</p>
             <p>{message.username} <span>{message.timestamp}</span> </p>
           </div>
