@@ -43,7 +43,7 @@ class DisplayTranscript extends Component {
   render() {
     const { conversationDate, messages, firstUser } = this.state;
     return (
-      <div>
+      <div className="main-container">
         {!!conversationDate && <Header chatDate={conversationDate} />}
         {messages.map((message, i) => {
           let position ='', focus = '';
