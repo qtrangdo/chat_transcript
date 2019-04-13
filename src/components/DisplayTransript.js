@@ -46,7 +46,7 @@ class DisplayTranscript extends Component {
       <div>
         {!!conversationDate && <Header chatDate={conversationDate} />}
         {messages.map((message, i) => {
-          let position;
+          let position ='', focus = '';
           if (message.username === firstUser) {
             position = 'left';
             //image links from API are broken, using placeholder img
@@ -54,12 +54,14 @@ class DisplayTranscript extends Component {
           } else {
             position = 'right';
             message.image = 'http://lorempixel.com/150/151/people/7'
-          }
+          };
+
+          if (message.focused) focus = 'focus';
 
           return (
             <div className={position} key={i}>
               <img src={message.image}></img>
-              <Message message={message} />
+              <Message message={message} focus={focus}/>
             </div>
           )
         })}

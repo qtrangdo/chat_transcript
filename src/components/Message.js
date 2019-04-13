@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Message = ({ message }) => {
+const Message = ({ message, focus }) => {
   return (
-    <div>
+    <div className={focus}>
       <p>{message.message}</p>
       <p>{message.username} <span>{message.timestamp}</span> </p>
     </div>
