@@ -60,7 +60,7 @@ class DisplayTranscript extends Component {
           if (message.focused) focus = 'focus';
 
           return (
-            <div className={position} key={i}>
+            <div className={`message-container ${position}`} key={i}>
               <img src={message.image}></img>
               <Message message={message} focus={focus}/>
             </div>
