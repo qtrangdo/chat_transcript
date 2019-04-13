@@ -40,16 +40,28 @@ class DisplayTranscript extends Component {
   }
 
   render() {
-    const { conversationDate, messages } = this.state;
+    const { conversationDate, messages, firstUser } = this.state;
     return (
       <div>
-        {!conversationDate && <Header chatDate={conversationDate} />}
-        {messages.map((message, i) => (
-          <div key={i}>
-            <p>{message.message}</p>
-            <p>{message.username} <span>{message.timestamp}</span> </p>
-          </div>
-        ))}
+        {!!conversationDate && <Header chatDate={conversationDate} />}
+        {messages.map((message, i) => {
+          let position;
+          if (message.username === firstUser) {
+            position = 'left';
+            //image links from API are broken, using placeholder img
+            message.image = 'http://lorempixel.com/150/150/people/9'
+          } else {
+            position = 'right';
+            message.image = 'http://lorempixel.com/150/151/people/7'
+          }
+
+          return (
+            <div className={position} key={i}>
+              <img src={message.image}></img>
+              MESSAGE HERE
+            </div>
+          )
+        })}
       </div>
     )
   };
