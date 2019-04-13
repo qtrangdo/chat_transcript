@@ -1,4 +1,5 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
 const Message = ({ message, focus }) => {
   return (
@@ -8,5 +9,14 @@ const Message = ({ message, focus }) => {
     </div>
   )
 }
+
+Message.propTypes = {
+  message: Proptypes.shape({
+    message: Proptypes.string.isRequired,
+    username: Proptypes.string.isRequired,
+    timestamp: Proptypes.string.isRequired,
+  }).isRequired,
+  focus: Proptypes.string.isRequired,
+};
 
 export default Message;
