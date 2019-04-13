@@ -50,12 +50,17 @@ img {
   margin-top: 1rem;
 }
 
+.large-bold>span {
+  margin-left: 4%;
+  text-align: center;
+}
+
 .left>img {
-  margin-right: 4%;
+  margin-right: 5%;
 }
 
 .right>img {
-  margin-left: 4%;
+  margin-left: 5%;
 }
 
 .dark {
@@ -65,3 +70,23 @@ img {
 .light {
   color: rgb(205, 205, 205);
 }
+
+.first-user-color {
+  color: rgb(251, 81, 88);
+}
+
+.second-user-color {
+  color: rgb(129, 174, 255);
+}
+
+.large-bold {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.small-bold {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-shadow: 0.3px 0.3px rgb(50, 50, 50);
+}
+/* bold not really display on small text */

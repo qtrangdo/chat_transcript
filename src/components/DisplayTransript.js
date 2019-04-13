@@ -47,14 +47,16 @@ class DisplayTranscript extends Component {
         {!!conversationDate && <Header chatDate={conversationDate} />}
         <hr/>
         {messages.map((message, i) => {
-          let position ='', focus = '';
+          let position ='', focus = '', userColor = '';
           if (message.username === firstUser) {
+            userColor = 'first-user-color';
             position = 'left';
             //image links from API are broken, using placeholder img
-            message.image = 'http://lorempixel.com/150/150/people/9'
+            message.image = 'http://lorempixel.com/150/150/people/9';
           } else {
+            userColor = 'second-user-color';
             position = 'right';
-            message.image = 'http://lorempixel.com/150/151/people/7'
+            message.image = 'http://lorempixel.com/150/151/people/7';
           };
 
           if (message.focused) focus = 'focus';
@@ -62,7 +64,7 @@ class DisplayTranscript extends Component {
           return (
             <div className={`message-container ${position}`} key={i}>
               <img src={message.image}></img>
-              <Message message={message} focus={focus}/>
+              <Message message={message} focus={focus} userColor={userColor}/>
             </div>
           )
         })}
