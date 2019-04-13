@@ -6,7 +6,13 @@ const Message = ({ message, focus }) => {
   return (
     <div className={focus}>
       <p>{message.message}</p>
-      <p>{message.username} <span>{getTime(message.timestamp)}</span> </p>
+      <p>
+        {message.username} 
+        <span>
+          <i className="far fa-clock" /> {' '}
+          {getTime(message.timestamp)}
+        </span>
+      </p>
     </div>
   )
 }
