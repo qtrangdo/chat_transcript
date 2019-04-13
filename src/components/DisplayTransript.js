@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import Message from './Message';
 
 class DisplayTranscript extends Component {
   constructor() {
@@ -58,7 +59,7 @@ class DisplayTranscript extends Component {
           return (
             <div className={position} key={i}>
               <img src={message.image}></img>
-              MESSAGE HERE
+              <Message message={message} />
             </div>
           )
         })}
