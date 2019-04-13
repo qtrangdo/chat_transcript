@@ -5,14 +5,13 @@ import { getDate } from '../dataHandlers';
 const Header = ({ chatDate }) => {
   const formatDate = getDate(chatDate);
   return (
-    <div>
-      <div>
+    <div className="header">
+      <div className="title dark">
         CHAT TRANSCRIPT
       </div>
-      <div>
+      <div className="light">
         {formatDate}
       </div>
-      <hr />
     </div>
   )
 }

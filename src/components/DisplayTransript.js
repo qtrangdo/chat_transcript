@@ -45,6 +45,7 @@ class DisplayTranscript extends Component {
     return (
       <div className="main-container">
         {!!conversationDate && <Header chatDate={conversationDate} />}
+        <hr/>
         {messages.map((message, i) => {
           let position ='', focus = '';
           if (message.username === firstUser) {
