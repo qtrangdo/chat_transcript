@@ -25913,6 +25913,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _dataHandlers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dataHandlers */ "./src/dataHandlers.js");
+/* harmony import */ var _dataHandlers__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_dataHandlers__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -25921,7 +25924,9 @@ var Message = function Message(_ref) {
       focus = _ref.focus;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: focus
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.message), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, message.timestamp), " "));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.message), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.username, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: "far fa-clock"
+  }), " ", ' ', Object(_dataHandlers__WEBPACK_IMPORTED_MODULE_2__["getTime"])(message.timestamp))));
 };
 
 Message.propTypes = {
@@ -25977,8 +25982,16 @@ var getDate = function getDate(chatDate) {
   return "".concat(days[dayIndex], ", ").concat(months[monthIndex + 1], " ").concat(date, ", ").concat(year);
 };
 
+var getTime = function getTime(timestamp) {
+  var time = timestamp.slice(11, 16).split(':');
+  var ampm = parseInt(time[0]) >= 12 ? 'PM' : 'AM';
+  time[0] = parseInt(time[0]) >= 12 ? parseInt(time[0]) - 12 : time[0];
+  return "".concat(time.join(':'), " ").concat(ampm);
+};
+
 module.exports = {
-  getDate: getDate
+  getDate: getDate,
+  getTime: getTime
 };
 
 /***/ }),
