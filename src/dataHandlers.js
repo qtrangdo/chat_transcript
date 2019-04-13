@@ -29,7 +29,7 @@ const getDate = (chatDate) => {
   const monthIndex = parseInt(dateParts[1], 10) - 1; // month index starts at 0
   const date = parseInt(dateParts[2], 10);
   const dayIndex = new Date(year, monthIndex, date).getDay()
-  return `${days[dayIndex]}, ${months[monthIndex]} ${date}, ${year}`
+  return `${days[dayIndex]}, ${months[monthIndex + 1]} ${date}, ${year}`
 };
 
 module.exports = {
