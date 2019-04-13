@@ -23,6 +23,12 @@
   letter-spacing: 0.2rem;
 }
 
+.message-body {
+  background: rgba(234, 234, 234);
+  padding: 1rem 3rem;
+  line-height: 1.5rem
+}
+
 hr {
   border: 1px solid rgb(205, 205, 205)
 }
@@ -31,7 +37,7 @@ img {
   height: 5rem;
   width: auto;
   border-radius: 50%;
-  margin: 2% 4% 0 0;
+  margin: 1rem 4% 0 0;
 }
 
 .dark {

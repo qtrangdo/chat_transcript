@@ -4,7 +4,7 @@ import { getTime } from '../dataHandlers';
 
 const Message = ({ message, focus }) => {
   return (
-    <div className={focus}>
+    <div className={` message-body ${focus}`}>
       <p>{message.message}</p>
       <p>
         {message.username} 
