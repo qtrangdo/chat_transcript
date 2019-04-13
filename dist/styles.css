@@ -26,7 +26,17 @@
 .message-body {
   background: rgba(234, 234, 234);
   padding: 1rem 3rem;
-  line-height: 1.5rem
+  line-height: 1.5rem;
+  width: 100%;
+}
+
+.right {
+  flex-direction: row-reverse;
+}
+
+.focus {
+  background-color: rgba(255, 255, 255);
+  box-shadow: 10px 10px 35px 15px rgb(234, 234, 234)
 }
 
 hr {
@@ -37,7 +47,15 @@ img {
   height: 5rem;
   width: auto;
   border-radius: 50%;
-  margin: 1rem 4% 0 0;
+  margin-top: 1rem;
+}
+
+.left>img {
+  margin-right: 4%;
+}
+
+.right>img {
+  margin-left: 4%;
 }
 
 .dark {
