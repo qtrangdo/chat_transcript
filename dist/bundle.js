@@ -25723,6 +25723,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header */ "./src/components/Header.js");
+/* harmony import */ var _Message__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Message */ "./src/components/Message.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
@@ -25748,6 +25749,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -25827,13 +25829,34 @@ function (_Component) {
     value: function render() {
       var _this$state = this.state,
           conversationDate = _this$state.conversationDate,
-          messages = _this$state.messages;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !conversationDate && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          messages = _this$state.messages,
+          firstUser = _this$state.firstUser;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !!conversationDate && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
         chatDate: conversationDate
       }), messages.map(function (message, i) {
+        var position = '',
+            focus = '';
+
+        if (message.username === firstUser) {
+          position = 'left'; //image links from API are broken, using placeholder img
+
+          message.image = 'http://lorempixel.com/150/150/people/9';
+        } else {
+          position = 'right';
+          message.image = 'http://lorempixel.com/150/151/people/7';
+        }
+
+        ;
+        if (message.focused) focus = 'focus';
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: position,
           key: i
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.message), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, message.timestamp), " "));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: message.image
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Message__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          message: message,
+          focus: focus
+        }));
       }));
     }
   }]);
@@ -25877,6 +25900,42 @@ Header.propTypes = {
 
 /***/ }),
 
+/***/ "./src/components/Message.js":
+/*!***********************************!*\
+  !*** ./src/components/Message.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var Message = function Message(_ref) {
+  var message = _ref.message,
+      focus = _ref.focus;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: focus
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.message), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, message.timestamp), " "));
+};
+
+Message.propTypes = {
+  message: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
+    message: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+    username: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+    timestamp: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+  }).isRequired,
+  focus: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+};
+/* harmony default export */ __webpack_exports__["default"] = (Message);
+
+/***/ }),
+
 /***/ "./src/dataHandlers.js":
 /*!*****************************!*\
   !*** ./src/dataHandlers.js ***!
@@ -25915,7 +25974,7 @@ var getDate = function getDate(chatDate) {
 
   var date = parseInt(dateParts[2], 10);
   var dayIndex = new Date(year, monthIndex, date).getDay();
-  return "".concat(days[dayIndex], ", ").concat(months[monthIndex], " ").concat(date, ", ").concat(year);
+  return "".concat(days[dayIndex], ", ").concat(months[monthIndex + 1], " ").concat(date, ", ").concat(year);
 };
 
 module.exports = {
