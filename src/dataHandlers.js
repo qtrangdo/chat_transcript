@@ -32,6 +32,14 @@ const getDate = (chatDate) => {
   return `${days[dayIndex]}, ${months[monthIndex + 1]} ${date}, ${year}`
 };
 
+const getTime = (timestamp) => {
+  const time = timestamp.slice(11,16).split(':');
+  const ampm = parseInt(time[0]) >= 12 ? 'PM' : 'AM';
+  time[0] = parseInt(time[0]) >= 12 ? parseInt(time[0]) - 12 : time[0];
+  return `${time.join(':')} ${ampm}`;
+}
+
 module.exports = {
   getDate,
+  getTime,
 }
