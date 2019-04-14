@@ -25831,31 +25831,48 @@ function (_Component) {
           conversationDate = _this$state.conversationDate,
           messages = _this$state.messages,
           firstUser = _this$state.firstUser;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !!conversationDate && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "main-container"
+      }, !!conversationDate && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
         chatDate: conversationDate
-      }), messages.map(function (message, i) {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), messages.map(function (message, i) {
         var position = '',
-            focus = '';
+            focus = '',
+            userColor = '',
+            triangle = '';
 
         if (message.username === firstUser) {
-          position = 'left'; //image links from API are broken, using placeholder img
+          userColor = 'first-user-color';
+          position = 'left';
+          triangle = 'triangle fas fa-caret-left fa-2x'; //image links from API are broken, using placeholder img
 
           message.image = 'http://lorempixel.com/150/150/people/9';
         } else {
+          userColor = 'second-user-color';
           position = 'right';
+          triangle = 'triangle fas fa-caret-right fa-2x';
           message.image = 'http://lorempixel.com/150/151/people/7';
         }
 
         ;
-        if (message.focused) focus = 'focus';
+
+        if (message.focused) {
+          focus = 'focus';
+          triangle += ' focus-triangle';
+        }
+
+        ;
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: position,
+          className: "message-container ".concat(position),
           key: i
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: message.image
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: triangle
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Message__WEBPACK_IMPORTED_MODULE_2__["default"], {
           message: message,
-          focus: focus
+          focus: focus,
+          userColor: userColor
         }));
       }));
     }
@@ -25890,7 +25907,13 @@ __webpack_require__.r(__webpack_exports__);
 var Header = function Header(_ref) {
   var chatDate = _ref.chatDate;
   var formatDate = Object(_dataHandlers__WEBPACK_IMPORTED_MODULE_2__["getDate"])(chatDate);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "CHAT TRANSCRIPT"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, formatDate), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "title dark"
+  }, "CHAT TRANSCRIPT"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "light"
+  }, formatDate));
 };
 
 Header.propTypes = {
@@ -25921,10 +25944,15 @@ __webpack_require__.r(__webpack_exports__);
 
 var Message = function Message(_ref) {
   var message = _ref.message,
-      focus = _ref.focus;
+      focus = _ref.focus,
+      userColor = _ref.userColor;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: focus
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.message), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.username, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    className: " message-body ".concat(focus)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, message.message), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "".concat(userColor, " large-bold")
+  }, message.username, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "dark small-bold"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "far fa-clock"
   }), " ", ' ', Object(_dataHandlers__WEBPACK_IMPORTED_MODULE_2__["getTime"])(message.timestamp))));
 };
@@ -25935,7 +25963,8 @@ Message.propTypes = {
     username: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
     timestamp: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
   }).isRequired,
-  focus: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
+  focus: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired,
+  userColor: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Message);
 
