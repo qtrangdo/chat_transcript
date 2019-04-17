@@ -1,8 +1,9 @@
 .main-container {
   font-family: 'Roboto', sans-serif;
   color: rgb(100, 100, 100);
-  margin: 8%;
+  margin: 8% auto;
   padding: 4%;
+  max-width: 1024px;
   box-shadow: 0 0 70px 20px rgb(205, 205, 205), 0 0 0 1600px rgba(234, 234, 234) ;
 }
 
