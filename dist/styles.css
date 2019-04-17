@@ -1,0 +1,103 @@
+.main-container {
+  font-family: 'Roboto', sans-serif;
+  color: rgb(100, 100, 100);
+  margin: 8%;
+  padding: 4%;
+  box-shadow: 0 0 70px 20px rgb(205, 205, 205), 0 0 0 1600px rgba(234, 234, 234) ;
+}
+
+.message-container {
+  display: flex;
+  margin-top: 4%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  margin-bottom: 4%;
+}
+
+.title {
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.message-body {
+  background: rgba(234, 234, 234);
+  padding: 1rem 3rem;
+  line-height: 1.5rem;
+  width: 100%;
+}
+
+.right {
+  flex-direction: row-reverse;
+}
+
+.focus {
+  background-color: rgba(255, 255, 255);
+  box-shadow: 10px 10px 35px 15px rgb(234, 234, 234)
+}
+
+hr {
+  border: 1px solid rgb(205, 205, 205)
+}
+
+img {
+  height: 5rem;
+  width: auto;
+  border-radius: 50%;
+  margin-top: 1rem;
+}
+
+.large-bold>span {
+  margin-left: 4%;
+  text-align: center;
+}
+
+.left>img {
+  margin-right: 5%;
+}
+
+.right>img {
+  margin-left: 5%;
+}
+
+.triangle {
+  color: rgba(234, 234, 234);
+  z-index: 1;
+  border: none;
+  margin: 2% -3px 0 -3px;
+}
+
+.focus-triangle {
+  color: rgba(255, 255, 255);
+}
+
+.dark {
+  color: rgb(50, 50, 50);
+}
+
+.light {
+  color: rgb(205, 205, 205);
+}
+
+.first-user-color {
+  color: rgb(251, 81, 88);
+}
+
+.second-user-color {
+  color: rgb(129, 174, 255);
+}
+
+.large-bold {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.small-bold {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-shadow: 0.3px 0.3px rgb(50, 50, 50);
+}
+/* bold not really display on small text */
