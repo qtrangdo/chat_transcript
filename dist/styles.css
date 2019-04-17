@@ -15,19 +15,19 @@
 .header {
   display: flex;
   justify-content: space-between;
-  font-size: 1.3rem;
+  font-size: 2vw;
   margin-bottom: 4%;
 }
 
 .title {
   font-weight: bold;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.9vw;
 }
 
 .message-body {
   background: rgba(234, 234, 234);
-  padding: 1rem 3rem;
-  line-height: 1.5rem;
+  padding: 1vw 3vw;
+  line-height: 2vw;
   width: 100%;
 }
 
@@ -45,10 +45,14 @@ hr {
 }
 
 img {
-  height: 5rem;
+  height: 5vw;
   width: auto;
   border-radius: 50%;
   margin-top: 1rem;
+}
+
+p {
+  font-size: 1.5vw;
 }
 
 .large-bold>span {
@@ -92,12 +96,12 @@ img {
 }
 
 .large-bold {
-  font-size: 1.2rem;
+  font-size: 2vw;
   font-weight: bold;
 }
 
 .small-bold {
-  font-size: 0.8rem;
+  font-size: 1vw;
   font-weight: bold;
   text-shadow: 0.3px 0.3px rgb(50, 50, 50);
 }
